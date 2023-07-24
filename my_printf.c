@@ -63,6 +63,8 @@ int _printf(const char *format, ...)
 				while (*str)
 					num_written += my_write(str++);
 			}
+			else if (*format == '%')
+				num_written += my_write(&ch);
 			else
 				num_written += format_none(format);
 			format++;
