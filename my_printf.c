@@ -44,6 +44,9 @@ int _printf(const char *format, ...)
 	va_list ap;
 	char ch = '%';
 
+	if (format == NULL)
+		return (-1);
+
 	va_start(ap, format);
 	while (*format)
 	{
