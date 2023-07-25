@@ -1,18 +1,6 @@
 #include <stdarg.h>
-#include <unistd.h>
-#include <stdio.h>
-
-/**
- * my_write - checker
- *
- * @c: char to write
- * Return: 1
- */
-
-int my_write(const char *c)
-{
-	return (write(1, c, 1));
-}
+#include <stddef.h>
+#include "main.h"
 
 /**
  * format_none - no format
