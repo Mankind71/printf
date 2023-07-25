@@ -7,11 +7,11 @@
  * Return: 2
  */
 
-int format_none(const char *format)
+int format_none(char format)
 {
 	char ch = '%';
 
-	my_write(&ch);
+	my_write(ch);
 	my_write(format);
 	return (2);
 }
@@ -26,7 +26,7 @@ int format_none(const char *format)
 
 int _printf(const char *format, ...)
 {
-	int num_written = 0;
+	int num_written = 0, i;
 	va_list ap;
 	char ch = '%';
 
@@ -41,25 +41,23 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == 'c')
 			{
-				char c = va_arg(ap, int);
-
-				num_written += my_write(&c);
+				num_written += my_write(va_arg(ap, int));
 			}
 			else if (*format == 's')
 			{
 				char *str = va_arg(ap, char *);
 
-				while (*str)
-					num_written += my_write(str++);
+				for (; str[i]; i++)
+					num_written += my_write(str[i]);
 			}
 			else if (*format == '%')
-				num_written += my_write(&ch);
+				num_written += my_write(ch);
 			else
-				num_written += format_none(format);
-			format++;
+				num_written += format_none(*format);
 		}
 		else
-			num_written += my_write(format++);
+			num_written += my_write(*format);
+		format++;
 	}
 	va_end(ap);
 

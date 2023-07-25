@@ -7,7 +7,7 @@
  * Return: 1
  */
 
-int my_write(char const *c)
+int my_write(char c)
 {
-	return (write(1, c, 1));
+	return (write(1, &c, 1));
 }
