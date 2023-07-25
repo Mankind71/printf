@@ -47,10 +47,10 @@ int _printf(const char *format, ...)
 			{
 				char *str = va_arg(ap, char *);
 
-				for (i = 0; str[i] != '\0'; i++)
-					num_written += my_write(str[i]);
+				while (*str)
+					num_written += my_write2(str++);
 			}
-			else if (*format == '%')
+			else if (*format == ch)
 				num_written += my_write(ch);
 			else
 				num_written += format_none(*format);
