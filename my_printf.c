@@ -26,7 +26,7 @@ int format_none(char format)
 
 int _printf(const char *format, ...)
 {
-	int num_written = 0, i;
+	int num_written = 0;
 	va_list ap;
 	char ch = '%';
 
