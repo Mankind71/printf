@@ -1,4 +1,5 @@
-#include "main.h"
+#include <stdarg.h>
+#include <unistd.h>
 
 /**
  * my_write - char writer
