@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 			{
 				char *str = va_arg(ap, char *);
 
-				for (; str[i]; i++)
+				for (i = 0; str[i] != '\0'; i++)
 					num_written += my_write(str[i]);
 			}
 			else if (*format == '%')
