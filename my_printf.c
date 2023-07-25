@@ -54,10 +54,10 @@ int _printf(const char *format, ...)
 				num_written += my_write(ch);
 			else
 				num_written += format_none(*format);
+			format++;
 		}
 		else
-			num_written += my_write(*format);
-		format++;
+			num_written += write(1, format++, 1);
 	}
 	va_end(ap);
 
