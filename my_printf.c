@@ -7,12 +7,12 @@
  * Return: 2
  */
 
-int format_none(char format)
+int format_none(const char *format)
 {
 	char ch = '%';
 
-	my_write(ch);
-	my_write(format);
+	my_write2(&ch);
+	my_write2(format);
 	return (2);
 }
 
@@ -53,7 +53,7 @@ int _printf(const char *format, ...)
 			else if (*format == ch)
 				num_written += my_write(ch);
 			else
-				num_written += format_none(*format);
+				num_written += format_none(format);
 			format++;
 		}
 		else
