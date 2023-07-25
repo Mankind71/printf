@@ -41,9 +41,7 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == 'c')
 			{
-				char c = va_arg(ap, int);
-
-				num_written += my_write(c);
+				num_written += my_write(va_arg(ap, int));
 			}
 			else if (*format == 's')
 			{
@@ -59,7 +57,7 @@ int _printf(const char *format, ...)
 			format++;
 		}
 		else
-			num_written += write(1, format++, 1);
+			num_written += my_write2(format++);
 	}
 	va_end(ap);
 
