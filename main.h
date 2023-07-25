@@ -6,6 +6,7 @@
 #include <stdarg.h>
 
 int my_write(char const *c);
+int format_none(const char *format);
 int _printf(const char *format, ...);
 
 #endif
