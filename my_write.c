@@ -19,7 +19,7 @@ int my_write(char c)
  * Return: 1
  */
 
-int my_write2(const char *c)
+int my_write2(const char *c, int count)
 {
-	return (write(1, c, 1));
+	return (write(1, c, count));
 }

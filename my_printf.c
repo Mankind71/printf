@@ -11,8 +11,8 @@ int format_none(const char *format)
 {
 	char ch = '%';
 
-	my_write2(&ch);
-	my_write2(format);
+	my_write2(&ch, 1);
+	my_write2(format, 1);
 	return (2);
 }
 
@@ -47,6 +47,10 @@ int _printf(const char *format, ...)
 			{
 				num_written += d_specifier((long int)va_arg(ap, int));
 			}
+			else if (*format == 'b')
+			{
+				num_written += b_specifier((long int)va_arg(ap, int));
+			}
 			else if (*format == ch)
 				num_written += my_write(ch);
 			else
@@ -54,7 +58,7 @@ int _printf(const char *format, ...)
 			format++;
 		}
 		else
-			num_written += my_write2(format++);
+			num_written += my_write2(format++, 1);
 	}
 	va_end(ap);
 

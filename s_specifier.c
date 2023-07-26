@@ -12,6 +12,6 @@ int s_specifier(va_list args)
 	int num_written = 0;
 
 	while (*str)
-		num_written += my_write2(str++);
+		num_written += my_write2(str++, 1);
 	return (num_written);
 }

@@ -1,0 +1,55 @@
+#include "main.h"
+
+/**
+ * binary - recursive printing
+ *
+ * @x: number to print
+ */
+
+void binary(int x, char *buf, int *buf_index)
+{
+	if (x < 1)
+		return;
+
+	if (x)
+	{
+		binary(x / 2, buf, buf_index);
+		buf[(*buf_index)++] = '0' + (x % 2);
+	}
+}
+
+/**
+ * count_bin - counts the num chars
+ *
+ * @buf: arg to count
+ * Return: the count
+ */
+
+int count_bin(char buf[])
+{
+	int i = 0;
+
+	while (buf[i] != '\0')
+		i++;
+
+	return (i);
+}
+
+/**
+ * b_specifier - prints a number in binary
+ *
+ * @x: number to print
+ * Return: number of binary digits printed
+ */
+
+int b_specifier(int x)
+{
+	char buf[32];
+	int index = 0, count;
+
+	binary(x, buf, &index);
+	buf[index] = '\0';
+	count = count_bin(buf);
+	my_write2(buf, count);
+	return (count);
+}
