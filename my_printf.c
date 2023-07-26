@@ -45,10 +45,7 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 's')
 			{
-				char *str = va_arg(ap, char *);
-
-				while (*str)
-					num_written += my_write2(str++);
+				num_written += s_specifier(ap);
 			}
 			else if (*format == ch)
 				num_written += my_write(ch);
