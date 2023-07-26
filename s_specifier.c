@@ -1,16 +1,18 @@
+
+#include "main.h"
 /**
  * s_specifier - prints variable of type str to sdout
- * 
- * @str: variable pointer to print
- * Return: 1
+ *  
+ * @args: variable pointer to print
+ * Return: number of words written
 */
 
-int s_specifier(const char *str)
+int s_specifier(va_list args)
 {
+    char *str = va_arg(args, char *);
+    int num_written = 0;
+
     while (*str)
-    {
-        ;
-    }
-    
-    return (0);
+	    num_written += my_write2(str++);
+    return (num_written);
 }
