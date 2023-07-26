@@ -40,12 +40,12 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			if (*format == 'c')
-			{
 				num_written += my_write(va_arg(ap, int));
-			}
 			else if (*format == 's')
-			{
 				num_written += s_specifier(ap);
+			else if (*format == 'd' || *format == 'i')
+			{
+				num_written += d_specifier((long int)va_arg(ap, int));
 			}
 			else if (*format == ch)
 				num_written += my_write(ch);
