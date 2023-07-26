@@ -4,6 +4,8 @@
  * binary - recursive printing
  *
  * @x: number to print
+ * @buf: bur to write to
+ * @buf_index: pointer to next char
  */
 
 void binary(int x, char *buf, int *buf_index)
