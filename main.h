@@ -9,6 +9,7 @@ int my_write(char c);
 int my_write2(const char *c);
 int format_none(const char *format);
 int _printf(const char *format, ...);
-int s_specifier(const char *str);
+int s_specifier(va_list args);
+int d_specifier(int args);
 
 #endif
