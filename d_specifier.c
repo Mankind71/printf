@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -10,10 +11,14 @@ int count_int(int x)
 {
 	int i;
 
+	if (x < 0)
+		x *= -1;
 	while (x % 10)
 	{
 		x = x / 10;
 		i++;
+		printf("i:%d\n", i);
+		printf("x:%d\n", x);
 	}
 	return (i);
 }

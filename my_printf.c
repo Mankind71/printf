@@ -39,7 +39,9 @@ int _printf(const char *format, ...)
 		if (*format == ch)
 		{
 			format++;
-			if (*format == 'c')
+			if (!(*format))
+				return (-1);
+			else if (*format == 'c')
 				num_written += my_write(va_arg(ap, int));
 			else if (*format == 's')
 				num_written += s_specifier(ap);

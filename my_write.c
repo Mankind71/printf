@@ -16,6 +16,7 @@ int my_write(char c)
  * my_write2 - checker
  *
  * @c: char to write
+ * @count: amount of bytes to write
  * Return: 1
  */
 
