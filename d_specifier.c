@@ -55,6 +55,12 @@ void print_digits(int x)
 
 int d_specifier(int x)
 {
+	if (x == 0)
+	{
+		my_write('0' + 0);
+		return (1);
+	}
+
 	print_digits(x);
 	return (count_int(x));
 }
