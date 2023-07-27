@@ -9,17 +9,19 @@
  */
 int count_int(int x)
 {
-	int i;
+	int i = 0;
 
 	if (x < 0)
-		x *= -1;
-	while (x % 10)
 	{
-		x = x / 10;
 		i++;
-		printf("i:%d\n", i);
-		printf("x:%d\n", x);
+		x *= -1;
 	}
+	while (x / 10)
+	{
+		i++;
+		x = x / 10;
+	}
+	i++;
 	return (i);
 }
 
@@ -33,13 +35,13 @@ void print_digits(int x)
 	if (x < 0)
 	{
 		my_write('-');
-		d_specifier(x * -1);
+		print_digits(x * -1);
 	}
 	else if (x != 0)
 	{
 		int i = x % 10;
 
-		d_specifier(x / 10);
+		print_digits(x / 10);
 		my_write('0' + i);
 	}
 }
